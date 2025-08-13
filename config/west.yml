@@ -6,6 +6,8 @@ manifest:
       # See:
       # - https://zmk.dev/docs/features/modules
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
+    - name: darknao
+      url-base: https://github.com/darknao
     - name: gpeye
       url-base: https://github.com/GPeye
   projects:
@@ -13,7 +15,7 @@ manifest:
       remote: gpeye
       revision: main 
     - name: zmk
-      remote: zmkfirmware
+      remote: darknao
       revision: main
       import: app/west.yml
   self:
