@@ -16,7 +16,7 @@ manifest:
       revision: main 
     - name: zmk
       remote: darknao
-      revision: main
+      revision: rgb-layer-25.04
       import: app/west.yml
   self:
     path: boards
