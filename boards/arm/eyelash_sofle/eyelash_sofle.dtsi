@@ -23,7 +23,6 @@
         zmk,kscan = &kscan0;
         zmk,battery = &vbatt;
         zmk,underglow = &led_strip;
-        zmk,physical-layout = &eyelash_sofle_layout;
         zmk,backlight = &backlight;
     };
 
