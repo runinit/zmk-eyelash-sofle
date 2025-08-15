@@ -141,12 +141,6 @@
     };
 
     macros {
-        rgb_ug_status_macro: rgb_ug_status_macro_0 {
-            label = "RGB_UG_STATUS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_STATUS>;
-        };
 
         bt_0: bt_profile_macro_0 {
             label = "BT_0";
