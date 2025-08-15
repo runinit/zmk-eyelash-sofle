@@ -229,7 +229,7 @@ layers:
   - RGB SAD
   - RGB BRD
   - {t: RGB EFR, s: RGB HUD}
-  - '&rgb_dual_breath RGB_DUAL_BREATH_TOG'
+  - '&rgb_dual_breath'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
