@@ -1,8 +1,8 @@
 name: zmk-eyelash-sofle
-cmake-ext: true
 build:
   cmake: .
   kconfig: Kconfig
+  cmake-ext: true
   settings:
      board_root: .
      dts_root: .
