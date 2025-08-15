@@ -11,7 +11,6 @@
 #include <dt-bindings/zmk/rgb.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
-
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
@@ -31,14 +30,219 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
         tap-ms = <100>;
     };
 
     behaviors {
+        lower_td: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LOWER_TAP_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 1>, <&to 1>;
+        };
+
+        upper_td: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "UPPER_TAP_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 2>, <&to 2>;
+        };
+
+        magic: magic_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MAGIC_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&rgb_ug_status_macro>;
+        };
+
+        rgb_up: rgb_up_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_UP_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_SAI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        rgb_down: rgb_down_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_DOWN_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRD>, <&rgb_ug RGB_SAD>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        rgb_left: rgb_left_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_LEFT_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_EFR>, <&rgb_ug RGB_HUD>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        rgb_right: rgb_right_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGB_RIGHT_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_EFF>, <&rgb_ug RGB_HUI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_0_mm: bt_0_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_0_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&bt_0>, <&bt_clear_0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_1_mm: bt_1_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_1_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&bt_1>, <&bt_clear_1>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_2_mm: bt_2_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_2_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&bt_2>, <&bt_clear_2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_3_mm: bt_3_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_3_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&bt_3>, <&bt_clear_3>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_4_mm: bt_4_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_4_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&bt_4>, <&bt_clear_4>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bt_5_mm: bt_5_mod_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_5_MOD_MORPH";
+            #binding-cells = <0>;
+            bindings = <&bt_5>, <&bt_clear_5>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
+    macros {
+        rgb_ug_status_macro: rgb_ug_status_macro_0 {
+            label = "RGB_UG_STATUS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_STATUS>;
+        };
+
+        bt_0: bt_profile_macro_0 {
+            label = "BT_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 0>;
+        };
+
+        bt_1: bt_profile_macro_1 {
+            label = "BT_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 1>;
+        };
+
+        bt_2: bt_profile_macro_2 {
+            label = "BT_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 2>;
+        };
+
+        bt_3: bt_profile_macro_3 {
+            label = "BT_3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 3>;
+        };
+
+        bt_4: bt_profile_macro_4 {
+            label = "BT_4";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 4>;
+        };
+
+        bt_5: bt_profile_macro_5 {
+            label = "BT_5";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE>, <&bt BT_SEL 5>;
+        };
+
+        bt_clear_0: bt_clear_macro_0 {
+            label = "BT_CLEAR_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 0>;
+        };
+
+        bt_clear_1: bt_clear_macro_1 {
+            label = "BT_CLEAR_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 1>;
+        };
+
+        bt_clear_2: bt_clear_macro_2 {
+            label = "BT_CLEAR_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 2>;
+        };
+
+        bt_clear_3: bt_clear_macro_3 {
+            label = "BT_CLEAR_3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 3>;
+        };
+
+        bt_clear_4: bt_clear_macro_4 {
+            label = "BT_CLEAR_4";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 4>;
+        };
+
+        bt_clear_5: bt_clear_macro_5 {
+            label = "BT_CLEAR_5";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_DISC 5>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
     };
 
     keymap {
+
         compatible = "zmk,keymap";
 
         layer_0 {
@@ -64,9 +268,9 @@
 &kp C_MUTE  &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans           &trans           &trans      &trans     &trans
             >;
 
-            display-name = "Upper";
+            display-name = "Lower";
             sensor-bindings = <&scroll_encoder>;
-            label = "Upper";
+            label = "Lower";
         };
 
         layer_2 {
@@ -77,20 +281,28 @@
 &trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
 &trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
             >;
-            display-name = "Lower";
+
+            display-name = "Upper";
             sensor-bindings = <&scroll_encoder>;
-            label = "Lower";
+            label = "Upper";
         };
 
         layer_3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans           &bt_0_mm        &bt_1_mm        &bt_2_mm        &bt_3_mm        &bt_4_mm           &rgb_up    &bt_5_mm         &trans &trans &trans &trans &sys_reset
+&trans           &bt BT_CLR      &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI    &rgb_down  &bt BT_CLR_ALL   &trans &trans &trans &trans &bootloader
+&trans           &out OUT_USB    &rgb_ug RGB_EFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD    &rgb_left  &trans           &trans &trans &trans &trans &trans
+&trans           &out OUT_BLE    &rgb_ug RGB_EFR &rgb_ug RGB_SPI &rgb_ug RGB_SPD &trans             &rgb_right &trans           &trans &trans &trans &trans &trans
+&rgb_ug RGB_TOG  &trans          &trans          &trans          &trans          &trans             &trans     &trans           &trans &trans &trans &trans
             >;
+            
+            display-name = "Adjust";
+            sensor-bindings = <&scroll_encoder>;
+            label = "Adjust";
+        };
 
+            display-name = "Adjust";
+            sensor-bindings = <&scroll_encoder>;
             label = "Adjust";
         };
     };
