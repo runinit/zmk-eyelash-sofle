@@ -1,2 +1,34 @@
 # Copyright (c) 2024 ZMK Contributors
 # SPDX-License-Identifier: MIT
+
+config ZMK_RGB_DUAL_BREATH
+    bool "Enable Dual-Color Breathing RGB Effect"
+    depends on ZMK_RGB_UNDERGLOW
+    help
+      Enable a custom dual-color breathing effect that alternates
+      between two configurable colors while breathing.
+
+if ZMK_RGB_DUAL_BREATH
+
+config ZMK_RGB_DUAL_BREATH_COLOR1_HUE
+    int "First color hue (0-359)"
+    default 120
+    range 0 359
+    help
+      Hue value for the first breathing color (green=120, blue=240, red=0).
+
+config ZMK_RGB_DUAL_BREATH_COLOR2_HUE
+    int "Second color hue (0-359)"
+    default 240
+    range 0 359
+    help
+      Hue value for the second breathing color (green=120, blue=240, red=0).
+
+config ZMK_RGB_DUAL_BREATH_SATURATION
+    int "Breathing colors saturation (0-100)"
+    default 100
+    range 0 100
+    help
+      Saturation value for both breathing colors.
+
+endif # ZMK_RGB_DUAL_BREATH
