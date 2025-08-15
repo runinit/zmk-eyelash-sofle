@@ -299,5 +299,4 @@
             sensor-bindings = <&scroll_encoder>;
             label = "Adjust";
         };
-    };
 };
