@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/rgb_dual_breath.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
@@ -26,6 +27,12 @@
 };
 
 / {
+    rgb_dual_breath: rgb_dual_breath {
+        compatible = "zmk,behavior-rgb-dual-breath";
+        label = "RGB_DUAL_BREATH";
+        #binding-cells = <1>;
+    };
+
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -271,7 +278,7 @@
             bindings = <
 &trans           &bt_0_mm        &bt_1_mm        &bt_2_mm        &bt_3_mm        &bt_4_mm           &rgb_up    &bt_5_mm         &trans &trans &trans &trans &sys_reset
 &trans           &bt BT_CLR      &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI    &rgb_down  &bt BT_CLR_ALL   &trans &trans &trans &trans &bootloader
-&trans           &out OUT_USB    &rgb_ug RGB_EFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD    &rgb_left  &trans           &trans &trans &trans &trans &trans
+&trans           &out OUT_USB    &rgb_ug RGB_EFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD    &rgb_left  &rgb_dual_breath RGB_DUAL_BREATH_TOG &trans &trans &trans &trans &trans
 &trans           &out OUT_BLE    &rgb_ug RGB_EFR &rgb_ug RGB_SPI &rgb_ug RGB_SPD &trans             &rgb_right &trans           &trans &trans &trans &trans &trans
 &rgb_ug RGB_TOG  &trans          &trans          &trans          &trans          &trans             &trans     &trans           &trans &trans &trans &trans
             >;
