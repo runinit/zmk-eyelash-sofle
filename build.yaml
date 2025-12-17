@@ -7,5 +7,5 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: eyelash_sofle_studio_left
-  - board: nice_nano/nrf52840
+  - board: nice_nano
     shield: settings_reset
