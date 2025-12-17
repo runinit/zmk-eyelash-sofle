@@ -68,15 +68,15 @@
 
         layer_1 {
             bindings = <
-&kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9     &kp F10           &kp DEL
-&trans      &kp GRAVE        &mkp LCLK       &mkp MCLK        &mkp RCLK        &mkp MB4           &mmv MOVE_DOWN   &kp PG_UP        &kp END          &kp UP      &kp HOME   &kp MINUS         &kp EQUAL
-&trans      &kp TILDE        &trans          &trans           &trans           &mkp MB5           &mmv MOVE_LEFT   &kp PG_DN        &kp LEFT         &kp DOWN    &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11    &kp F12           &trans
-&kp C_MUTE  &trans           &trans          &trans           &trans           &trans             &mkp LCLK        &trans           &trans           &trans      &trans     &trans
+&kp GRAVE  &kp F1           &kp F2           &kp F3           &kp F4           &kp F5             &kp PAGE_UP    &kp F6           &kp F7           &kp F8  &kp F9   &kp F10           &kp DEL
+&trans     &trans           &trans           &trans           &trans           &trans             &kp PAGE_DOWN  &trans           &trans           &trans  &trans   &kp MINUS         &kp EQUAL
+&trans     &rgb_ug RGB_ON   &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF  &rgb_ug RGB_SPI    &kp HOME       &trans           &trans           &trans  &trans   &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans     &rgb_ug RGB_OFF  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR  &rgb_ug RGB_SPD    &kp END        &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &trans  &kp F11  &kp F12           &trans
+&trans     &trans           &trans           &trans           &trans           &trans             &kp INSERT     &trans           &trans           &trans  &trans   &trans
             >;
 
             display-name = "layer1";
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>;
             label = "Upper";
         };
 
@@ -116,6 +116,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
             >;
+
             display-name = "layer4";
             sensor-bindings = <&scroll_encoder>;
         };
