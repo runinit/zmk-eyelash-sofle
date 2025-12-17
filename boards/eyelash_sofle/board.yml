@@ -2,7 +2,7 @@ board:
   name: eyelash_sofle
   vendor: custom
   socs:
-    - name: nrf52840_qiaa
+    - name: nrf52840
       variants:
         - name: left
         - name: right

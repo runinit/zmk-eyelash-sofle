@@ -8,6 +8,6 @@ config BOARD_EYELASH_SOFLE
     bool
     # This selects the SoC using the new HWMv2 naming convention
     select SOC_SERIES_NRF52X
-    select SOC_NRF52840_QIAA
+    select SOC_NRF52840
 
 source "Kconfig.defconfig"
