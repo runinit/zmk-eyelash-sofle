@@ -22,3 +22,7 @@
     col-offset = <7>;
 };
 
+&left_encoder {
+    status = "okay";
+};
+
