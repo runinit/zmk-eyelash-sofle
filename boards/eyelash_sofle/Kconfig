@@ -10,4 +10,4 @@ config BOARD_EYELASH_SOFLE
     select SOC_SERIES_NRF52X
     select SOC_NRF52840
 
-source "$(BOARD_DIR)/Kconfig.defconfig"
+rsource "Kconfig.defconfig"
