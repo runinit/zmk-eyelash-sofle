@@ -9,7 +9,7 @@ CONFIG_ZMK_SLEEP=y
 
 
 # Enable MPU
-CONFIG_ARM_MPU=y
+CONFIG_ARM_MPU=n
 
 # enable pinctrl
 CONFIG_PINCTRL=y
