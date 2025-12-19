@@ -1,0 +1,14 @@
+&nice_view_spi {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+};
+
+/ {
+    chosen {
+        zmk,display = &nice_view;
+    };
+};
+
+&nice_view {
+    spi-max-frequency = <4000000>;
+};
