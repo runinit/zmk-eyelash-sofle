@@ -1,0 +1,31 @@
+/*
+ *
+ * Copyright (c) 2024 The ZMK Contributors
+ * SPDX-License-Identifier: MIT
+ *
+ * Eyelash Sofle dongle overlay.
+ *
+ * SuperMini nRF52840 (nice_nano_v2 class) acting as the split central with
+ * no keys, no display, no RGB, no encoder. It forwards keypress and sensor
+ * events from the left/right peripherals to the host over USB.
+ *
+ * The shared shield dtsi is pulled in unchanged so the dongle inherits the
+ * matrix transform, physical layout, encoder stub, and sensors wiring (the
+ * encoder stays disabled since the dongle has no physical EC11 attached).
+ * The kscan is overridden to a mock so no local key matrix is scanned.
+ */
+
+#include "eyelash_sofle.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+    };
+
+    mock_kscan: mock_kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
